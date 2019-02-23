@@ -30,22 +30,9 @@
  */
 
 // ここでeach関数を作る
-const each = (array, callback) => {
-  for (let i = 0; i < array.length; i++) {
-    callback(array[i], i);
-  }
-};
+
 
 // ここでeach関数の挙動を確かめる
-
-const inputArrayForEach = [1, 2, 3, 4];
-const iterateArray = each(inputArrayForEach, (value, index) => {
-  console.log(`index：${index}、値：${value}`);
-});
-
-console.log(`イテレーション前：${inputArrayForEach}`);
-console.log(iterateArray);
-
 
 
 
@@ -79,26 +66,9 @@ console.log(iterateArray);
 
 // ここでmap関数を実装する
 
-const map = (array, callback) => {
-  const newArray = [];
-  each(array, (value, index) => {
-    const newValue = callback(value, index);
-    newArray.push(newValue);
-  })
-  return newArray;
-};
+
 
 // ここでmap関数の挙動を確認する
-const inputArrayForMap = [1, 2, 3];
-const mappedArray = map(inputArrayForMap, (value, index) => {
-  console.log(`map関数のコールバック関数、index：${index}、値：${value}`);
-  return value * 2;
-});
-
-console.log(`マップ処理前：${inputArrayForMap}`);
-console.log(`マップ処理後：${mappedArray}`);
-
-
 
 /**
  * 課題3: 「Array.prototype.filter()」と同等の機能を持つ関数を作る
@@ -130,23 +100,6 @@ console.log(`マップ処理後：${mappedArray}`);
  */
 
 // ここでfilter関数を作る
-const filter = (array, callback) => {
-  const newArray = [];
-  each(array, (value, index) => {
-    if (callback(value, index)) {
-      newArray.push(value);
-    }
-  })
-  return newArray;
-};
+
 
 // ここでfilter関数の挙動を確認する
-
-const inputArrayForFilter = [1, 2, 3, 4, 5];
-const filteredArray = filter(inputArrayForFilter, (value, index) => {
-  console.log(`filtre関数のコールバック関数、index：${index}、値：${value}`);
-  return value % 2 === 0;
-});
-
-console.log(`フィルター処理前：${inputArrayForFilter}`);
-console.log(`フィルター処理後：${filteredArray}`);
